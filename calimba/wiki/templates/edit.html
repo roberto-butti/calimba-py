@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>{{page_name}} - EDIT</title>
+  </head>
+  <body>
+    <h1>Editing <i>{{page_name}}</i></h1>
+    
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form method="post" action="/wiki/{{page_name}}/save/">
+      <textarea name="content" rows="20" cols="60">{{content}}</textarea>
+      <input type="submit" value="Save Page" />
+      {% csrf_token %}
+    </form>
+    
+  </body>
+</html>
