@@ -3,10 +3,12 @@ from calimba.wiki.models import Page
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
-import markdown
 
-def index(rquest):
-  return HttpResponse("You're looking at poll-- index")
+
+
+def index(request):
+  pages = Page.objects.all()
+  return render_to_response("index.html" ,{"pages":pages },context_instance=RequestContext(request))
       
       
 def edit_page(request, page_name):

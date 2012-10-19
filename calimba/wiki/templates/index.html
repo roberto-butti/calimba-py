@@ -1,0 +1,16 @@
+{% extends "basic_layout.html" %}
+
+{% block html_title %}
+  Elenco pagine
+{% endblock %}
+
+{% block content %}
+{% for page in pages %}
+<h2>
+<a href="/wiki/{{page.name}}/">
+{{ page.name|upper }}
+</a>
+</h2>
+<p>{{ page.content|striptags|truncatewords:"100" }}</p>
+{% endfor %}
+{% endblock %}

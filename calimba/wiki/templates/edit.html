@@ -1,8 +1,10 @@
-<html>
-  <head>
-    <title>{{page_name}} - EDIT</title>
-  </head>
-  <body>
+{% extends "basic_layout.html" %}
+
+{% block html_title %}
+  {{page_name}} - EDIT
+{% endblock %}
+
+{% block content %}
     <h1>Editing <i>{{page_name}}</i></h1>
     
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -11,6 +13,4 @@
       <input type="submit" value="Save Page" />
       {% csrf_token %}
     </form>
-    
-  </body>
-</html>
+{% endblock %}
