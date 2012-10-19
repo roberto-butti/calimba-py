@@ -2,4 +2,5 @@ venv
 *.pyc
 grappelli/
 /admin/
+calimba.komodoproject
 
