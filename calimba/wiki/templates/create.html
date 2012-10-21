@@ -1,11 +1,11 @@
 {% extends "basic_layout.html" %}
 
 {% block html_title %}
-  {{page_name}} - Create
+  {{page_slug}} - Create
 {% endblock %}
 
 {% block content %}
-    <h1>{{page_name}}</h1>
+    <h1>{{page_slug}}</h1>
     <p>This page does not exists!!!</p>
-    <a href="/wiki/{{page_name}}/edit/">Create this page</a>
+    <a href="/wiki/{{page_slug}}/edit/">Create this page</a>
 {% endblock %}

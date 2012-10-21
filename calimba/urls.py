@@ -19,5 +19,6 @@ urlpatterns = patterns('',
     
     url(r'^wiki/', include('calimba.wiki.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^admin_tools/', include('admin_tools.urls')),
+    #url(r'^grappelli/', include('grappelli.urls')),
 )

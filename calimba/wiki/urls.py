@@ -10,7 +10,7 @@ urlpatterns = patterns('calimba.wiki.views',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^$', 'index'),
     
-    url(r'(?P<page_name>[^/]+)/edit/$', 'edit_page'),
-    url(r'(?P<page_name>[^/]+)/save/$', 'save_page'),
-    url(r'(?P<page_name>[^/]+)/$', 'view_page'),
+    url(r'(?P<page_slug>[^/]+)/edit/$', 'edit_page'),
+    url(r'(?P<page_slug>[^/]+)/save/$', 'save_page'),
+    url(r'(?P<page_slug>[^/]+)/$', 'view_page'),
 )

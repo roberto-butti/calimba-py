@@ -111,6 +111,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -119,7 +120,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'calimba.wiki',
-    'activities',
+    'calimba.activities',
+    'grappelli.dashboard',
     'grappelli',
     'django.contrib.admin',
 
@@ -127,6 +129,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     
     
+)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.i18n",
+    'django.contrib.messages.context_processors.messages',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -137,23 +145,50 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+        
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
         },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    
+    'loggers': {
+        #'django.request': {
+        #    'handlers': ['mail_admins'],
+        #    'level': 'ERROR',
+        #    'propagate': True,
+        #},
+        'calimba.wiki': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+
+        }
     }
+        
 }
+
+# GRAPPELLI ADMIN CONFIG
+GRAPPELLI_ADMIN_TITLE="Calimba - Gestione Attivit"
+AUTOCOMPLETE_LIMIT=5
+GRAPPELLI_INDEX_DASHBOARD = 'calimba.dashboard.CustomIndexDashboard'

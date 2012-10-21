@@ -9,6 +9,10 @@ class ActivityStatus(models.Model):
         return self.title
 
     title = models.CharField(max_length=200)
+    position = models.PositiveSmallIntegerField("Position")
+    
+    class Meta:
+        ordering = ['position']
 
 
 class Activity(models.Model):

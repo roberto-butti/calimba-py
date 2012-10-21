@@ -1,4 +1,4 @@
-from activities.models import Activity, ActivityStatus
+from calimba.activities.models import Activity, ActivityStatus
 from django.contrib import admin
 
 

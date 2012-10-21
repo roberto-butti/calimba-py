@@ -1,15 +1,19 @@
 {% extends "basic_layout.html" %}
 
 {% block html_title %}
-  {{page_name}} - EDIT
+  {{page.name}} - EDIT
 {% endblock %}
 
 {% block content %}
-    <h1>Editing <i>{{page_name}}</i></h1>
+    <h1>Editing <i>{{page.name}}</i></h1>
     
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    <form method="post" action="/wiki/{{page_name}}/save/">
-      <textarea name="content" rows="20" cols="60">{{content}}</textarea>
+    <form method="post" action="/wiki/{{page.slug}}/save/">
+      
+      <input type="text" name="name" value="{{page.name}}" />
+      
+      <input type="text" name="pub_date" value="{{page.pub_date}}" />
+      <textarea name="content" rows="20" cols="60">{{page.content}}</textarea>
       <input type="submit" value="Save Page" />
       {% csrf_token %}
     </form>

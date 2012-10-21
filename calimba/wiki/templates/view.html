@@ -1,13 +1,14 @@
 {% extends "basic_layout.html" %}
 
 {% block html_title %}
-  {{page_name}} - view
+  {{page.name}} - view
 {% endblock %}
 
 {% block content %}
-  <h1>{{page_name}}</h1>
-  <p>{{content}}</p>
+  <h1>{{page.name}}</h1>
+  <p>{{page.content}}</p>
+  <p>The URL is: {{page.slug}}</p>
   <hr/>
-  <a href="/wiki/{{page_name}}/edit/">Edit this page</a>
+  <a href="/wiki/{{page.slug}}/edit/">Edit this page</a>
 {% endblock %}
     
